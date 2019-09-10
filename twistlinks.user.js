@@ -1,15 +1,16 @@
 // ==UserScript==
-// @name         TwistLinks
-// @version      0.1
-// @description  Creates a list of DL links
-// @author       Alex Reynen
-// @match        https://twist.moe/a/*
+// @name        TwistLinks
+// @version     0.2
+// @description Creates a list of DL links
+// @author      Alex Reynen
+// @match       https://twist.moe/a/*
+// @homepage    https://github.com/areynen/TwistLinks
 // ==/UserScript==
 
 (function button_adder() {
     let button = document.createElement('BUTTON');
     button.onclick = function () {
-        try{
+        try {
             runner();
         } catch (TypeError) {
             button.textContent = 'Generate Download Links | Please wait for video to load';
