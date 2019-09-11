@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        TwistLinks
-// @version     0.2.1
+// @version     0.2.2
 // @description Creates a list of DL links
 // @author      Alex Reynen
 // @match       https://twist.moe/a/*
@@ -13,8 +13,16 @@
 
     let video_data = document.querySelector('.video-data');
     video_data.appendChild(div);
-    add_button();
+    add_inputs();
 })();
+
+function add_inputs() {
+    let div = document.createElement('div');
+    div.setAttribute('class', 'twist-input');
+    document.querySelector('.twist-links').appendChild(div);
+
+    add_button();
+}
 
 function add_button() {
     let button = document.createElement('BUTTON');
@@ -28,7 +36,7 @@ function add_button() {
     };
 
     button.textContent = 'Generate Download Links';
-    document.querySelector('.twist-links').appendChild(button);
+    document.querySelector('.twist-input').appendChild(button);
 }
 
 function runner() {
@@ -49,5 +57,5 @@ function runner() {
     }
 
     document.querySelector('.twist-links').appendChild(div);
-    document.querySelector('.twist-links > button:nth-child(1)').remove();
+    document.querySelector('.twist-input > button:nth-child(1)').remove();
 }
